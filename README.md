@@ -5,3 +5,4 @@ Homeworks from NSU Architecture of neural network course
 
 * [hw-01](hw-01) - EDA данных со скважин
 * [hw-02](hw-02) - Персептрон на numpy для интерполяции косинуса
+* [hw-03](hw-03) – Сверточная нейронная сеть на numpy для MNIST
