@@ -129,5 +129,8 @@ vscode
 .dmypy.json
 dmypy.json
 
+# data
+.mat
+
 # Pyre type checker
 .pyre/
