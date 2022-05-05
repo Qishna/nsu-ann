@@ -20,7 +20,6 @@ class Perceptron():
 
         y_pred = self.layers[-2].forward(l_out)
         _ = self.layers[-1].forward(y_pred)
-
         return y_pred
 
     def backward(self, y_pred, y_train):
