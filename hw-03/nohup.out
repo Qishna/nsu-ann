@@ -1,0 +1,128 @@
+[I 13:40:07.117 NotebookApp] Serving notebooks from local directory: /home/timur/nsu-ann-2022/hw-03
+[I 13:40:07.117 NotebookApp] Jupyter Notebook 6.4.11 is running at:
+[I 13:40:07.117 NotebookApp] http://localhost:6969/?token=56dcf4e2609bea67e51f96f1de4d08498c292b090a348f00
+[I 13:40:07.117 NotebookApp]  or http://127.0.0.1:6969/?token=56dcf4e2609bea67e51f96f1de4d08498c292b090a348f00
+[I 13:40:07.117 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 13:40:07.122 NotebookApp] No web browser found: could not locate runnable browser.
+[C 13:40:07.122 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/timur/.local/share/jupyter/runtime/nbserver-1724488-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:6969/?token=56dcf4e2609bea67e51f96f1de4d08498c292b090a348f00
+     or http://127.0.0.1:6969/?token=56dcf4e2609bea67e51f96f1de4d08498c292b090a348f00
+[I 13:40:08.934 NotebookApp] 302 GET /?token=56dcf4e2609bea67e51f96f1de4d08498c292b090a348f00 (127.0.0.1) 0.630000ms
+[W 13:41:03.891 NotebookApp] Notebook LeNet.ipynb is not trusted
+[I 13:41:04.597 NotebookApp] Kernel started: ec3b879c-ae9f-440f-a5b0-65d8c58f7b89, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 70c8b7f0-2b04-4449-abb1-03aa71e30aff
+[I 13:43:04.555 NotebookApp] Saving file at /LeNet.ipynb
+[I 13:51:04.904 NotebookApp] Saving file at /LeNet.ipynb
+[I 13:55:04.528 NotebookApp] Saving file at /LeNet.ipynb
+[I 13:55:05.502 NotebookApp] Saving file at /LeNet.ipynb
+[I 13:57:04.882 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:00:14.527 NotebookApp] Starting buffering for ec3b879c-ae9f-440f-a5b0-65d8c58f7b89:cfe398cb534b462980585099242a4d4c
+[I 14:00:16.140 NotebookApp] Restoring connection for ec3b879c-ae9f-440f-a5b0-65d8c58f7b89:cfe398cb534b462980585099242a4d4c
+[W 14:01:46.143 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 14:01:46.406 NotebookApp] zmq message arrived on closed channel
+[W 14:01:46.406 NotebookApp] zmq message arrived on closed channel
+[W 14:01:49.131 NotebookApp] zmq message arrived on closed channel
+[W 14:01:49.131 NotebookApp] zmq message arrived on closed channel
+[W 14:01:49.132 NotebookApp] zmq message arrived on closed channel
+[I 14:01:51.146 NotebookApp] Starting buffering for ec3b879c-ae9f-440f-a5b0-65d8c58f7b89:cfe398cb534b462980585099242a4d4c
+[I 14:36:23.281 NotebookApp] Discarding 2019 buffered messages for ec3b879c-ae9f-440f-a5b0-65d8c58f7b89:cfe398cb534b462980585099242a4d4c
+[I 14:37:58.124 NotebookApp] Kernel interrupted: ec3b879c-ae9f-440f-a5b0-65d8c58f7b89
+[I 14:38:01.413 NotebookApp] Kernel shutdown: ec3b879c-ae9f-440f-a5b0-65d8c58f7b89
+[I 14:38:01.459 NotebookApp] Starting buffering for ec3b879c-ae9f-440f-a5b0-65d8c58f7b89:e62d59d6ba57463c8efb971814b8e245
+[I 14:38:01.473 NotebookApp] Kernel shutdown: ec3b879c-ae9f-440f-a5b0-65d8c58f7b89
+[E 14:38:01.473 NotebookApp] Uncaught exception DELETE /api/sessions/4c7e4372-afb6-4d33-a085-9535dfe1440f (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='localhost:6969', method='DELETE', uri='/api/sessions/4c7e4372-afb6-4d33-a085-9535dfe1440f', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+        yielded = self.gen.throw(*exc_info)  # type: ignore
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/notebook/services/sessions/handlers.py", line 164, in delete
+        yield maybe_future(sm.delete_session(session_id))
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/tornado/gen.py", line 762, in run
+        value = future.result()
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/tornado/gen.py", line 775, in run
+        yielded = self.gen.send(value)
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/notebook/services/sessions/sessionmanager.py", line 287, in delete_session
+        yield maybe_future(self.kernel_manager.shutdown_kernel(session['kernel']['id']))
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+        self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/jupyter_client/utils.py", line 30, in wrapped
+        raise e
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/jupyter_client/utils.py", line 27, in wrapped
+        return loop.run_until_complete(future)
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/nest_asyncio.py", line 89, in run_until_complete
+        return f.result()
+      File "/usr/lib/python3.8/asyncio/futures.py", line 178, in result
+        raise self._exception
+      File "/usr/lib/python3.8/asyncio/tasks.py", line 280, in __step
+        result = coro.send(None)
+      File "/home/timur/nsu-ann-2022/hw-03/.venv/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 262, in _async_shutdown_kernel
+        if not km.ready.cancelled() and km.ready.exception():
+    asyncio.exceptions.InvalidStateError: Exception is not set.
+[W 14:38:01.705 NotebookApp] Unhandled error
+[E 14:38:01.706 NotebookApp] {
+      "Host": "localhost:6969",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "http://localhost:6969/notebooks/LeNet.ipynb",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36"
+    }
+[E 14:38:01.706 NotebookApp] 500 DELETE /api/sessions/4c7e4372-afb6-4d33-a085-9535dfe1440f (127.0.0.1) 235.130000ms referer=http://localhost:6969/notebooks/LeNet.ipynb
+[I 14:38:11.485 NotebookApp] Kernel started: 53c46b84-7106-489c-b724-3b448fe25f76, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 456cd234-f50f-4f3d-8ce0-b5e7180830dc
+[I 14:39:35.320 NotebookApp] Saving file at /dataset.py
+[I 14:40:12.319 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:40:20.076 NotebookApp] Saving file at /dataset.py
+[I 14:40:37.936 NotebookApp] Kernel interrupted: 53c46b84-7106-489c-b724-3b448fe25f76
+[I 14:40:41.132 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:40:41.804 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:42:11.577 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:44:12.483 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:48:12.159 NotebookApp] Saving file at /LeNet.ipynb
+[I 14:56:12.352 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:02:11.573 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:04:12.239 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:10:12.366 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:18:12.158 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:26:12.973 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:30:11.586 NotebookApp] Saving file at /LeNet.ipynb
+[I 15:32:21.527 NotebookApp] Starting buffering for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 15:32:23.637 NotebookApp] Restoring connection for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[W 15:33:53.625 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 15:33:58.670 NotebookApp] Starting buffering for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 03:34:57.730 NotebookApp] Restoring connection for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 03:35:01.003 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:36:53.401 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:38:58.062 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:40:53.331 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:42:55.420 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:44:53.347 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:46:54.045 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:50:53.324 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:52:53.317 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:53:02.232 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:54:53.302 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:56:53.307 NotebookApp] Saving file at /LeNet.ipynb
+[I 03:58:54.121 NotebookApp] Saving file at /LeNet.ipynb
+[I 04:18:34.916 NotebookApp] Saving file at /LeNet.ipynb
+[I 04:18:40.470 NotebookApp] Saving file at /LeNet.ipynb
+[I 05:14:21.008 NotebookApp] Starting buffering for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 05:14:23.908 NotebookApp] Restoring connection for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[W 05:15:53.909 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 05:15:58.935 NotebookApp] Starting buffering for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 05:30:39.121 NotebookApp] Restoring connection for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 05:31:04.043 NotebookApp] Saving file at /LeNet.ipynb
+[I 05:31:10.450 NotebookApp] Saving file at /LeNet.ipynb
+[I 05:31:10.914 NotebookApp] Saving file at /LeNet.ipynb
+[I 05:31:12.409 NotebookApp] Saving file at /LeNet.ipynb
+[I 05:31:13.155 NotebookApp] Starting buffering for 53c46b84-7106-489c-b724-3b448fe25f76:fe92f3115c534222aea683c86847411d
+[I 05:31:16.218 NotebookApp] Kernel shutdown: 53c46b84-7106-489c-b724-3b448fe25f76
+[I 05:31:52.015 NotebookApp] Shutting down on /api/shutdown request.
+[I 05:31:52.418 NotebookApp] Shutting down 0 kernels
+[I 05:31:52.440 NotebookApp] Shutting down 0 terminals
