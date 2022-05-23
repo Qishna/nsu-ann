@@ -1,7 +1,8 @@
 import imageio
-import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
+import matplotlib.pyplot as plt
+from layers import sigmoid, dsigmoid, dtanh, lrelu, dlrelu
 
 
 class GAN:
@@ -41,39 +42,19 @@ class GAN:
         self.b0_g = np.zeros((1, self.nh_g))
 
         self.W1_g = np.random.randn(self.nh_g, self.image_size**2) * np.sqrt(
-            2.0 / self.nh_g
-        )
+            2.0 / self.nh_g)
         self.b1_g = np.zeros((1, self.image_size**2))
 
         self.W0_d = np.random.randn(self.image_size**2, self.nh_d) * np.sqrt(
-            2.0 / self.image_size**2
-        )
+            2.0 / self.image_size**2)
         self.b0_d = np.zeros((1, self.nh_d))
 
         self.W1_d = np.random.randn(self.nh_d, 1) * np.sqrt(2.0 / self.nh_d)
         self.b1_d = np.zeros((1, 1))
 
-    def sigmoid(self, x):
-        return 1.0 / (1.0 + np.exp(-x))
-
-    def dsigmoid(self, x):
-        y = self.sigmoid(x)
-        return y * (1.0 - y)
-
-    def dtanh(self, x):
-        return 1.0 - np.tanh(x) ** 2
-
-    def lrelu(self, x, alpha=1e-2):
-        return np.maximum(x, x * alpha)
-
-    def dlrelu(self, x, alpha=1e-2):
-        dx = np.ones_like(x)
-        dx[x < 0] = alpha
-        return dx
-
     def forward_generator(self, z):
         self.z0_g = np.dot(z, self.W0_g) + self.b0_g
-        self.a0_g = self.lrelu(self.z0_g, alpha=0)
+        self.a0_g = lrelu(self.z0_g, alpha=0)
 
         self.z1_g = np.dot(self.a0_g, self.W1_g) + self.b1_g
         self.a1_g = np.tanh(self.z1_g)
@@ -81,34 +62,32 @@ class GAN:
 
     def forward_discriminator(self, x):
         self.z0_d = np.dot(x, self.W0_d) + self.b0_d
-        self.a0_d = self.lrelu(self.z0_d)
+        self.a0_d = lrelu(self.z0_d)
 
         self.z1_d = np.dot(self.a0_d, self.W1_d) + self.b1_d
-        self.a1_d = self.sigmoid(self.z1_d)
+        self.a1_d = sigmoid(self.z1_d)
         return self.z1_d, self.a1_d
 
-    def backward_discriminator(
-        self, x_real, z1_real, a1_real, x_fake, z1_fake, a1_fake
-    ):
+    def backward_discriminator(self, x_real, z1_real, a1_real, x_fake, z1_fake, a1_fake):
         da1_real = -1.0 / (a1_real + 1e-8)
 
-        dz1_real = da1_real * self.dsigmoid(z1_real)
+        dz1_real = da1_real * dsigmoid(z1_real)
         dW1_real = np.dot(self.a0_d.T, dz1_real)
         db1_real = np.sum(dz1_real, axis=0, keepdims=True)
 
         da0_real = np.dot(dz1_real, self.W1_d.T)
-        dz0_real = da0_real * self.dlrelu(self.z0_d)
+        dz0_real = da0_real * dlrelu(self.z0_d)
         dW0_real = np.dot(x_real.T, dz0_real)
         db0_real = np.sum(dz0_real, axis=0, keepdims=True)
 
         da1_fake = 1.0 / (1.0 - a1_fake + 1e-8)
 
-        dz1_fake = da1_fake * self.dsigmoid(z1_fake)
+        dz1_fake = da1_fake * dsigmoid(z1_fake)
         dW1_fake = np.dot(self.a0_d.T, dz1_fake)
         db1_fake = np.sum(dz1_fake, axis=0, keepdims=True)
 
         da0_fake = np.dot(dz1_fake, self.W1_d.T)
-        dz0_fake = da0_fake * self.dlrelu(self.z0_d, alpha=0)
+        dz0_fake = da0_fake * dlrelu(self.z0_d, alpha=0)
         dW0_fake = np.dot(x_fake.T, dz0_fake)
         db0_fake = np.sum(dz0_fake, axis=0, keepdims=True)
 
@@ -127,17 +106,17 @@ class GAN:
     def backward_generator(self, z, x_fake, z1_fake, a1_fake):
         da1_d = -1.0 / (a1_fake + 1e-8)
 
-        dz1_d = da1_d * self.dsigmoid(z1_fake)
+        dz1_d = da1_d * dsigmoid(z1_fake)
         da0_d = np.dot(dz1_d, self.W1_d.T)
-        dz0_d = da0_d * self.dlrelu(self.z0_d)
+        dz0_d = da0_d * dlrelu(self.z0_d)
         dx_d = np.dot(dz0_d, self.W0_d.T)
 
-        dz1_g = dx_d * self.dtanh(self.z1_g)
+        dz1_g = dx_d * dtanh(self.z1_g)
         dW1_g = np.dot(self.a0_g.T, dz1_g)
         db1_g = np.sum(dz1_g, axis=0, keepdims=True)
 
         da0_g = np.dot(dz1_g, self.W1_g.T)
-        dz0_g = da0_g * self.dlrelu(self.z0_g, alpha=0)
+        dz0_g = da0_g * dlrelu(self.z0_g, alpha=0)
         dW0_g = np.dot(z.T, dz0_g)
         db0_g = np.sum(dz0_g, axis=0, keepdims=True)
 
