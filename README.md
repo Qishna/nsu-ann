@@ -7,3 +7,4 @@ Homeworks from NSU Architecture of neural network course
 * [hw-02](hw-02) - Perceptron on numpy for cosine interpolation
 * [hw-03](hw-03) – LeNet on numpy for MNIST
 * [hw-04](hw-04) – RNN and LSTM on numpy
+* [hw-05](hw-05) – GAN on numpy for MNIST
