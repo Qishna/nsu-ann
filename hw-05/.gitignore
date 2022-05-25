@@ -2,7 +2,7 @@
 /data/
 
 #Samples from GAN
-/GAN_sample_images/
+/GAN_outputs/
 
  Byte-compiled / optimized / DLL files
 __pycache__/

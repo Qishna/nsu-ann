@@ -31,8 +31,7 @@ class GAN:
         self.image_size = image_size
         self.display_epochs = display_epochs
         self.create_gif = create_gif
-
-        self.image_dir = Path("./GAN_sample_images")
+        self.image_dir = Path("./GAN_outputs")
         if not self.image_dir.is_dir():
             self.image_dir.mkdir()
 
@@ -70,7 +69,6 @@ class GAN:
 
     def backward_discriminator(self, x_real, z1_real, a1_real, x_fake, z1_fake, a1_fake):
         da1_real = -1.0 / (a1_real + 1e-8)
-
         dz1_real = da1_real * dsigmoid(z1_real)
         dW1_real = np.dot(self.a0_d.T, dz1_real)
         db1_real = np.sum(dz1_real, axis=0, keepdims=True)
@@ -105,7 +103,6 @@ class GAN:
 
     def backward_generator(self, z, x_fake, z1_fake, a1_fake):
         da1_d = -1.0 / (a1_fake + 1e-8)
-
         dz1_d = da1_d * dsigmoid(z1_fake)
         da0_d = np.dot(dz1_d, self.W1_d.T)
         dz0_d = da0_d * dlrelu(self.z0_d)
